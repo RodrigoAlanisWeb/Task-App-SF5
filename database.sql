@@ -23,3 +23,14 @@ created_at      datetime,
 CONSTRAINT pk_tasks PRIMARY KEY(id),
 CONSTRAINT fk_task_user FOREIGN KEY(user_id) REFERENCES users(id) 
 )ENGINE=InnoDb;
+
+
+INSERT INTO users VALUES(null,'ROLE_USER','Test 1','Test 1','test1@gmail.com','123456',CURTIME());
+INSERT INTO users VALUES(null,'ROLE_USER','Test 2','Test 2','test2@gmail.com','123456',CURTIME());
+INSERT INTO users VALUES(null,'ROLE_USER','Test 3','Test 3','test3@gmail.com','123456',CURTIME());
+INSERT INTO users VALUES(null,'ROLE_USER','Test 4','Test 4','test4@gmail.com','123456',CURTIME());
+
+INSERT INTO tasks VALUES(null,1,'Task 1','Tast 1','Task 1',1,CURTIME());
+INSERT INTO tasks VALUES(null,2,'Task 2','Tast 2','Task 2',1,CURTIME());
+INSERT INTO tasks VALUES(null,3,'Task 3','Tast 3','Task 3',1,CURTIME());
+INSERT INTO tasks VALUES(null,4,'Task 4','Tast 4','Task 4',1,CURTIME());

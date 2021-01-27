@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-
-        {% block javascripts %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+	</head>
+	<body>
+		<header class="header">
+			Task App Symfony
+			<nav class="header__nav">
+				<ul class="header__list">
+					{% if app.user %}
+					<li class="header__item"><a href="{{ path('tasks') }}" class="header__link">Home</a></li>
+					<li class="header__item"><a href="{{ path('my-tasks') }}" class="header__link">My Tasks</a></li>
+					<li class="header__item"><a href="{{ path('create') }}" class="header__link">Create Task</a></li>
+					<li class="header__item">
+						User: {{ app.user.name }} {{ app.user.surname }} 
+					</li>
+					<li class="header__item"><a class="header__link" href="{{ path('logout') }}">Log Out</a></li>
+					{% else %}
+						<li class="header__item"><a href="{{ path('login') }}" class="header__link">Login</a></li>
+						<li class="header__item"><a href="{{ path('register') }}" class="header__link">Register</a></li>
+					{% endif %}
+				</ul>
+				
+			</nav>
+		</header>
+		{% block body %}{% endblock %}
+	</body>
 </html>
